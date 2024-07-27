@@ -103,5 +103,31 @@ async function copyContent()
     setTimeout(() => {
         copyMsg.classList.remove("active")
     }, 2000)
-    
 }
+
+function handleCheckBoxChange()
+{
+    checkCount = 0
+    allCheckbox.forEach( (checkbox) => {
+        if(checkbox.checked)
+            checkCount++
+    })
+}
+
+allCheckbox.forEach( (checkbox) => {
+    checkbox.addEventListener('change', handleCheckBoxChange)
+})
+
+inputSlider.addEventListener('input', (e) => {
+    passwordLength = e.target.value
+    handleSlider()
+})
+
+copyBtn.addEventListener('click', () => {
+    if(passwordDisplay.value)
+        copyContent()
+})
+
+generateBtn.addEventListener('click', () => {
+    
+})
