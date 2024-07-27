@@ -83,5 +83,25 @@ function calcStrength()
     {
         setIndicator("#f00")
     }
+}
 
+async function copyContent()
+{
+    try
+    {
+        await navigator.clipboard.writeText(passwordDisplay.textContent)
+        copyMsg.textContent = "Copied!"
+    }
+    catch(e)
+    {
+        copyMsg.textContent = "Failed to Copy!"
+    }
+
+    //To make copy span visible
+    copyMsg.classList.add("active")
+
+    setTimeout(() => {
+        copyMsg.classList.remove("active")
+    }, 2000)
+    
 }
