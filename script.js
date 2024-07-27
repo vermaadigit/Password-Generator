@@ -112,6 +112,13 @@ function handleCheckBoxChange()
         if(checkbox.checked)
             checkCount++
     })
+
+    //special count
+    if(passwordLength < checkCount)
+    {
+        passwordLength = checkCount
+        handleSlider()
+    }
 }
 
 allCheckbox.forEach( (checkbox) => {
@@ -129,5 +136,19 @@ copyBtn.addEventListener('click', () => {
 })
 
 generateBtn.addEventListener('click', () => {
+    //none of the checkbox is selected
+
+    if(checkCount <= 0) return
+
+    if(passwordLength < checkCount)
+    {
+        passwordLength = checkCount
+        handleSlider()
+    }
+
+    //Lets start the journey to find new password
+
+    //remove old password
+    password = ""   
     
 })
