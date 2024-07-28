@@ -17,7 +17,7 @@ let passwordLength = 10
 let checkCount = 0
 handleSlider() 
 //Set Strength Indicator color to Grey
-
+setIndicator("#ccc")
 
 
 //Set Password Length
@@ -25,6 +25,9 @@ function handleSlider()
 {
     inputSlider.value = passwordLength
     lengthDisplay.textContent = passwordLength
+    const min = inputSlider.min
+    const max = inputSlider.max
+    inputSlider.style.backgroudSize = ((passwordLength - min)*100/(max - min)) + "% 100%"
 }
 
 function setIndicator(color)
